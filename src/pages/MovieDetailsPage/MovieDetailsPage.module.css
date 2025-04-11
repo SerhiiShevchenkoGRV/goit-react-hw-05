@@ -1,0 +1,27 @@
+.movieDetailsCont {
+  padding: 1em 16px 0;
+}
+
+.movieCont {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  padding-bottom: 16px;
+}
+
+.movieCont::after {
+}
+
+.movieDescr {
+}
+
+.moviePoster {
+  width: 250px;
+  height: 400px;
+  border: 2px solid black;
+}
+
+.addInfo {
+  border: 2px solid grey;
+}

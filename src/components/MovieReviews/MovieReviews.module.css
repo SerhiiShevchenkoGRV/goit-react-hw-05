@@ -1,0 +1,12 @@
+.reviewsCont {
+  border: 2px grey solid;
+  margin-top: 16px;
+}
+
+.reviewAuthAva {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}

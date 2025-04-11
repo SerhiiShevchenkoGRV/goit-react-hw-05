@@ -1,0 +1,15 @@
+.form {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.moviesCont {
+  padding: 0 16px;
+}
+
+.srchInpt {
+  min-width: 300px;
+}
