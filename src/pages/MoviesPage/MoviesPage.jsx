@@ -13,10 +13,10 @@ export default function MoviesPage() {
     const getMovies = async () => {
       try {
         const { results } = await fetchMoviesByQuery(userQuery);
-        const filteredResults = results.filter(
+        const filteredMovies = results.filter(
           (movie) => movie.original_language === "en"
         );
-        setMovies(filteredResults);
+        setMovies(filteredMovies);
       } catch (error) {
         alert(error.message);
       } finally {

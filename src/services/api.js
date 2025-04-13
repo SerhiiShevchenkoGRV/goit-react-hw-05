@@ -4,11 +4,9 @@ const MY_ACCESS_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
 // const MY_ACCESS_KEY = import.meta.env.VITE_API_KEY;
 
 export const fetchPopularMovies = async () => {
-  const popMovies = await axios.get("/discover/movie", {
+  const popMovies = await axios.get("/trending/movie/day", {
     params: {
-      with_original_language: "en",
       language: "en-US",
-      sort_by: "popularity.desc",
     },
     headers: {
       Authorization: `Bearer ${MY_ACCESS_TOKEN}`,

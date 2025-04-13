@@ -10,7 +10,10 @@ export default function HomePage() {
     const getMovies = async () => {
       try {
         const { results } = await fetchPopularMovies();
-        setPopMovies(results);
+        const filteredMovies = results.filter(
+          (movie) => movie.original_language === "en"
+        );
+        setPopMovies(filteredMovies);
       } catch (error) {
         alert(error.message);
       } finally {
