@@ -1,12 +1,30 @@
-.reviewsCont {
-  border: 2px grey solid;
-  margin-top: 16px;
+.reviewsList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 16px 32px;
+  padding: 0;
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
 }
 
 .reviewAuthAva {
-  width: 90px;
+  min-width: 90px;
   height: 90px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center;
+  object-position: center top;
+}
+
+.reviewAuthor {
+  margin: 0;
+}
+
+.noReviewsText {
+  margin: 16px;
 }

@@ -12,44 +12,52 @@ export default function MovieReviews() {
       try {
         const { results } = await fetchReviewsById(movieId);
         setReviews(results);
-        console.log(results);
       } catch (error) {
-        console.log(error);
+        alert(error);
       } finally {
-        console.log("finally3");
+        console.log("finally Movie Reviews");
       }
     };
     getReviews();
   }, [movieId]);
+
   return (
     <div className={css.reviewsCont}>
-      <ul>
-        {reviews.map((review) => {
-          const {
-            author,
-            author_details: { avatar_path: avatar },
-            content,
-            created_at,
-            id,
-          } = review;
-          return (
-            <li key={id}>
-              <img
-                className={css.reviewAuthAva}
-                src={
-                  avatar
-                    ? `https://image.tmdb.org/t/p/w185${avatar}`
-                    : "https://www.gravatar.com/avatar/?d=mp"
-                }
-                alt={`${author}'s avatar`}
-              />
-              <h3>{author}</h3>
-              <p>{created_at}</p>
-              <p>{content}</p>
-            </li>
-          );
-        })}
-      </ul>
+      {reviews.length ? (
+        <ul className={css.reviewsList}>
+          {reviews.map((review) => {
+            const {
+              author,
+              author_details: { avatar_path: avatar },
+              content,
+              created_at,
+              id,
+            } = review;
+            return (
+              <li className={css.reviewItem} key={id}>
+                <img
+                  className={css.reviewAuthAva}
+                  src={
+                    avatar
+                      ? `https://image.tmdb.org/t/p/w185${avatar}`
+                      : "https://www.gravatar.com/avatar/?d=mp"
+                  }
+                  alt={`${author}'s avatar`}
+                />
+                <div className={css.reviewContent}>
+                  <h3 className={css.reviewAuthor}>{author}</h3>
+                  <p>{created_at.slice(0, 16).replace("T", " ")}</p>
+                  <p>{content}</p>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      ) : (
+        <p className={css.noReviewsText}>
+          We don't have any reviews for this movie.
+        </p>
+      )}
     </div>
   );
 }

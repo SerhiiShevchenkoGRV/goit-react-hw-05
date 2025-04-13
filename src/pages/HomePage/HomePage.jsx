@@ -1,25 +1,30 @@
 import { useState, useEffect } from "react";
 import { fetchPopularMovies } from "../../services/api";
 import MovieList from "../../components/MovieList/MovieList";
+import css from "./HomePage.module.css";
 
-export default function Home() {
+export default function HomePage() {
   const [popMovies, setPopMovies] = useState([]);
+
   useEffect(() => {
     const getMovies = async () => {
       try {
-        const { page, results, total_pages, total_results } =
-          await fetchPopularMovies();
-        console.log(page, results);
+        const { results } = await fetchPopularMovies();
         setPopMovies(results);
       } catch (error) {
-        console.log(error);
+        alert(error.message);
       } finally {
-        console.log("finally");
+        console.log("finally Home Page");
       }
     };
 
     getMovies();
   }, []);
 
-  return <MovieList popMovies={popMovies} />;
+  return (
+    <div>
+      <h1 className={css.homeTitle}>Trending today</h1>
+      <MovieList moviesList={popMovies} />
+    </div>
+  );
 }

@@ -11,31 +11,34 @@ export default function MovieCast() {
     const getCredits = async () => {
       try {
         const { cast } = await fetchCreditsById(movieId);
-        console.log(cast);
         setMovieCast(cast);
       } catch (error) {
-        console.log(error);
+        alert(error);
       } finally {
-        console.log("finally4");
+        console.log("finally Movie Cast");
       }
     };
     getCredits();
   }, [movieId]);
 
   return (
-    <div>
-      <ul>
+    <div className={css.movieCastCont}>
+      <ul className={css.movieCastList}>
         {movieCast.map((actor) => {
           const { character, id, name, profile_path: photo } = actor;
           return (
-            <li key={id}>
-              <h3>{name}</h3>
+            <li className={css.movieCastItem} key={id}>
               <img
-                className={css.reviewAuthAva}
-                src={`https://image.tmdb.org/t/p/w185${photo}`}
+                className={css.actorsPhoto}
+                src={
+                  photo
+                    ? `https://image.tmdb.org/t/p/w185${photo}`
+                    : "https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png"
+                }
                 alt={name}
               />
-              <p>Character: {character}</p>
+              <h4 className={css.actorsName}>{name}</h4>
+              <p className={css.chrctName}> Character: {character}</p>
             </li>
           );
         })}

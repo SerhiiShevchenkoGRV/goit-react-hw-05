@@ -1,6 +1,9 @@
 .notFoundCont {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 16px;
+  position: relative;
 }
 
 .notFoundText {
@@ -9,4 +12,31 @@
   background-color: red;
   border-radius: 5px;
   padding: 2px 10px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.goHomeLink {
+  width: 100px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: white;
+  border: 1px solid grey;
+  border-radius: 5px;
+
+  text-decoration: none;
+  color: black;
+}
+
+.goHomeLink:hover,
+.goHomeLink:focus {
+  cursor: pointer;
+  background-color: #d6d6d6;
 }

@@ -1,7 +1,7 @@
 import axios from "axios";
 axios.defaults.baseURL = "https://api.themoviedb.org/3";
-const MY_ACCESS_KEY = import.meta.env.VITE_API_KEY;
 const MY_ACCESS_TOKEN = import.meta.env.VITE_TMDB_TOKEN;
+// const MY_ACCESS_KEY = import.meta.env.VITE_API_KEY;
 
 export const fetchPopularMovies = async () => {
   const popMovies = await axios.get("/discover/movie", {
@@ -16,6 +16,20 @@ export const fetchPopularMovies = async () => {
     },
   });
   return popMovies.data;
+};
+
+export const fetchMoviesByQuery = async (userQuery) => {
+  const searchedMovies = await axios.get("/search/movie", {
+    params: {
+      query: userQuery,
+      language: "en-US",
+    },
+    headers: {
+      Authorization: `Bearer ${MY_ACCESS_TOKEN}`,
+      Accept: "application/json",
+    },
+  });
+  return searchedMovies.data;
 };
 
 export const fetchMovieById = async (movieId) => {
@@ -41,7 +55,6 @@ export const fetchReviewsById = async (movieId) => {
 export const fetchCreditsById = async (movieId) => {
   const movieCredits = await axios.get(`movie/${movieId}/credits`, {
     params: {
-      // with_original_language: "en",
       language: "en-US",
     },
     headers: {

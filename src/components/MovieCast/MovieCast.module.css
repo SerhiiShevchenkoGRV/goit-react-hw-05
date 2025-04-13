@@ -1,0 +1,39 @@
+.movieCastList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  list-style-type: none;
+  margin: 0;
+  padding: 16px 0;
+}
+
+.movieCastItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 190px;
+  min-height: 260px;
+  font-size: 12px;
+  padding-bottom: 8px;
+}
+
+.actorsPhoto {
+  width: 100%;
+  height: 215px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.actorsName {
+  margin: 0;
+}
+
+.chrctName {
+  padding: 0;
+  margin: 0;
+}
