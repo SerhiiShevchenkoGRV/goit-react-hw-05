@@ -40,16 +40,6 @@ export const fetchMovieById = async (movieId) => {
   return searchedMovie.data;
 };
 
-export const fetchReviewsById = async (movieId) => {
-  const movieReviews = await axios.get(`movie/${movieId}/reviews`, {
-    headers: {
-      Authorization: `Bearer ${MY_ACCESS_TOKEN}`,
-      Accept: "application/json",
-    },
-  });
-  return movieReviews.data;
-};
-
 export const fetchCreditsById = async (movieId) => {
   const movieCredits = await axios.get(`movie/${movieId}/credits`, {
     params: {
@@ -61,4 +51,14 @@ export const fetchCreditsById = async (movieId) => {
     },
   });
   return movieCredits.data;
+};
+
+export const fetchReviewsById = async (movieId) => {
+  const movieReviews = await axios.get(`movie/${movieId}/reviews`, {
+    headers: {
+      Authorization: `Bearer ${MY_ACCESS_TOKEN}`,
+      Accept: "application/json",
+    },
+  });
+  return movieReviews.data;
 };
